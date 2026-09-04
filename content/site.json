@@ -3,7 +3,7 @@
   "nameFa": "فارسینما",
   "tagline": "See the unseen cinema of the Middle East",
   "taglineFa": "سینمای نادیده‌ی خاورمیانه را ببینید",
-  "description": "Farcinema is an independent film curation program in the San Francisco Bay Area presenting new, award-winning Middle Eastern films from Cannes, Berlinale, Venice, Sundance, Tribeca, and beyond. Our goal is to introduce the art of Middle Eastern cinema to the world.",
+  "description": "Farcinema is an independent film curation program in the San Francisco Bay Area. We show new Middle Eastern films that win at Cannes, Berlinale, Venice, Sundance, and Tribeca and then rarely get a release here.",
   "region": "Bay Area",
   "regionLong": "San Francisco Bay Area",
   "venue": {
@@ -26,7 +26,8 @@
   ],
   "social": {
     "instagram": "",
-    "email": ""
+    "email": "",
+    "whatsapp": "https://chat.whatsapp.com/GXL1pJYgfxo2kDBwOGWmBO"
   },
   "series": {
     "slug": "let-her-sing-2026",
@@ -50,13 +51,13 @@
     "tickets": {
       "url": "https://www.diasporaartsconnection.org/events/lethersing2026-screenings",
       "label": "Get tickets",
-      "note": "Tickets for individual screenings, or a four-film package for the complete program."
+      "note": "Sold per film, or as a four-film pass for the whole day."
     },
     "intro": [
-      "As part of the 10th anniversary of Let Her Sing: A Celebration of Female Voices, Diaspora Arts Connection and Farcinema present a special program of four films at YBCA in San Francisco, exploring the lives of women who refuse to let censorship, social expectations, and restrictions on artistic expression silence their voices.",
-      "Together, Sonita, The Unfinished Song, A Sister's Tale, and No Land's Song offer powerful perspectives on women, music, and the fundamental right to be heard. Moving between Afghanistan, the Middle East, Europe, and the diaspora, these films show how singing can become an act of self-determination, resistance, cultural memory, and freedom."
+      "For the 10th anniversary of Let Her Sing: A Celebration of Female Voices, Diaspora Arts Connection and Farcinema present four films at YBCA in San Francisco. All four are about women who keep singing when they are told to stop.",
+      "Sonita, The Unfinished Song, A Sister's Tale, and No Land's Song move between Afghanistan, the Middle East, Europe, and the diaspora. In each of them, a woman's voice is the thing at stake."
     ],
-    "closing": "Each film stands on its own, offering a distinct story of women asserting their right to sing, create, and determine their own lives. Together, the four screenings form a larger conversation at the heart of Let Her Sing: what does it mean when a woman's voice is restricted, and what becomes possible when she is finally heard?",
+    "closing": "Tickets are sold per film, or as a four-film pass for the whole day. Come for one, or stay from eleven to six.",
     "films": [
       {
         "slug": "sonita",
