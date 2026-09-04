@@ -49,8 +49,8 @@ const curators = site.curators.map((c) => c.name);
           <p class="eyebrow">Venues</p>
           <h3>{site.venue.name}, {site.venue.city}</h3>
           <p>Home of our programs to date. {site.venue.address} · <a class="link" href={site.venue.map} target="_blank" rel="noopener">Map ↗</a></p>
-          <h3 style="margin-top:1rem">San Francisco</h3>
-          <p>The October 2026 series. Venue to be announced.</p>
+          <h3 style="margin-top:1rem">{site.series ? `${site.series.venue.short}, San Francisco` : 'San Francisco'}</h3>
+          <p>{site.series ? <>The October 2026 series at <a class="link" href={site.series.venue.website} target="_blank" rel="noopener">{site.series.venue.name}</a>.</> : 'The October 2026 series.'}</p>
         </div>
         <div>
           <p class="eyebrow">Filmmakers &amp; distributors</p>

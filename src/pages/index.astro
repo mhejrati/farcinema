@@ -151,7 +151,7 @@ const eventLd = upcoming.map((ev) => ({
         <div>
           <p class="eyebrow">Where</p>
           <h3>Around the Bay</h3>
-          <p>Our programs so far have been at <a class="link" href={site.venue.map} target="_blank" rel="noopener">{site.venue.name}</a> in {site.venue.city}. The October series moves to San Francisco.</p>
+          <p>Our programs so far have been at <a class="link" href={site.venue.map} target="_blank" rel="noopener">{site.venue.name}</a> in {site.venue.city}. The October series moves to <a class="link" href={site.series?.venue.website ?? site.series?.venue.map} target="_blank" rel="noopener">{site.series?.venue.short ?? "YBCA"}</a> in San Francisco.</p>
         </div>
         <div>
           <p class="eyebrow">Tickets</p>
