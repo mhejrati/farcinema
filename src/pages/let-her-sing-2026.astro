@@ -1,0 +1,117 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import { posterMaybe } from '../lib/images';
+import { site, formatDate, pad } from '../lib/site';
+
+const series = site.series;
+const dateLong = formatDate(series.date, { weekday: 'long' });
+const description = `${series.subtitle}. Four films presented by ${series.partner.name} and ${site.name} at ${series.venue.name}, San Francisco, on ${dateLong}.`;
+const eventLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ScreeningEvent',
+  name: `${series.title} — ${site.name} × ${series.partner.name}`,
+  description,
+  startDate: `${series.date}T11:00:00-07:00`,
+  endDate: `${series.date}T18:00:00-07:00`,
+  eventStatus: 'https://schema.org/EventScheduled',
+  location: {
+    '@type': 'Place',
+    name: series.venue.name,
+    address: { '@type': 'PostalAddress', streetAddress: '700 Howard Street', addressLocality: 'San Francisco', addressRegion: 'CA', postalCode: '94103', addressCountry: 'US' },
+  },
+  organizer: [
+    { '@type': 'Organization', name: series.partner.name, url: series.partner.url },
+    { '@type': 'Organization', name: site.name, url: Astro.site?.toString() },
+  ],
+  offers: { '@type': 'Offer', url: series.tickets.url, availability: 'https://schema.org/InStock' },
+};
+---
+<Base title={series.title} description={description} jsonLd={[eventLd]}>
+  <div class="container page-head series-head">
+    <p class="eyebrow">{dateLong} · {series.venue.name}, {series.city}</p>
+    <h1>{series.shortTitle}: <em>Film Screenings</em></h1>
+    <p class="lede">{series.subtitle}. Four films on women, music, and the right to be heard, presented by <a class="link" href={series.partner.url} target="_blank" rel="noopener">{series.partner.name}</a> and {site.name}.</p>
+    <div class="hero__actions">
+      <a class="btn btn-primary" href={series.tickets.url} target="_blank" rel="noopener">{series.tickets.label} ↗</a>
+      <a class="btn" href="#films">The four films</a>
+    </div>
+  </div>
+
+  <div class="container about-grid series-intro">
+    <div class="prose">
+      {series.intro.map((p) => <p>{p}</p>)}
+    </div>
+    <div class="info-card">
+      <div>
+        <p class="eyebrow">When</p>
+        <h3>{dateLong}</h3>
+        <p>{series.time}</p>
+      </div>
+      <div>
+        <p class="eyebrow">Where</p>
+        <h3>{series.venue.name}</h3>
+        <p>{series.venue.address}<br /><a class="link" href={series.venue.map} target="_blank" rel="noopener">Open in Maps ↗</a></p>
+      </div>
+      <div>
+        <p class="eyebrow">Tickets</p>
+        <p>{series.tickets.note}</p>
+        <div class="hero__actions" style="margin-top:1rem">
+          <a class="btn btn-primary btn-small" href={series.tickets.url} target="_blank" rel="noopener">{series.tickets.label} ↗</a>
+        </div>
+      </div>
+      <div>
+        <p class="eyebrow">Presented with</p>
+        <p><a class="link" href={series.partner.url} target="_blank" rel="noopener">{series.partner.name}</a>, as part of the 10th anniversary of Let Her Sing: A Celebration of Female Voices.</p>
+      </div>
+    </div>
+  </div>
+
+  <section class="container section" id="films">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">The program</p>
+        <h2>Four films, <em>one</em> day</h2>
+      </div>
+    </div>
+    <div class="series-films">
+      {series.films.map((film, i) => {
+        const img = posterMaybe(film.poster);
+        return (
+          <article class="series-film" id={film.slug}>
+            <div class="series-film__poster">
+              {img ? (
+                <Image src={img} alt={`Poster for ${film.title}`} widths={[400, 800]} sizes="(min-width: 760px) 240px, 100vw" />
+              ) : (
+                <div class="series-film__placeholder" aria-hidden="true"><span>{pad(i + 1)}</span></div>
+              )}
+            </div>
+            <div class="series-film__body">
+              <p class="eyebrow">Film {pad(i + 1)} · {film.year} · {film.country}</p>
+              <h3>{film.title}</h3>
+              {film.title_fa && <p class="film-card__fa" lang="fa" dir="rtl">{film.title_fa}</p>}
+              <p class="series-film__dir">Directed by {film.director}</p>
+              <div class="prose">
+                {film.synopsis.map((p) => <p>{p}</p>)}
+              </div>
+              <div class="links" style="margin-top:0.5rem">
+                <a class="btn btn-small btn-primary" href={series.tickets.url} target="_blank" rel="noopener">Tickets ↗</a>
+                {film.imdb && <a class="btn btn-small" href={film.imdb} target="_blank" rel="noopener">IMDb ↗</a>}
+              </div>
+            </div>
+          </article>
+        );
+      })}
+    </div>
+  </section>
+
+  <section class="container section series-closing">
+    <p class="eyebrow">See one film, or all four</p>
+    <h2>What becomes possible when she is <em>finally heard</em>?</h2>
+    <p class="lede">{series.closing}</p>
+    <div class="hero__actions">
+      <a class="btn btn-primary" href={series.tickets.url} target="_blank" rel="noopener">{series.tickets.label} ↗</a>
+      <a class="btn" href={series.partner.url} target="_blank" rel="noopener">Event page at {series.partner.name} ↗</a>
+    </div>
+  </section>
+</Base>

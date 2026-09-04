@@ -1,0 +1,18 @@
+---
+import Base from '../../layouts/Base.astro';
+import FilmCard from '../../components/FilmCard.astro';
+import { films, filmsNewestFirst, formatDate, site } from '../../lib/site';
+const first = films[0];
+---
+<Base title="Archive" description={`Every film Farcinema has presented in the ${site.regionLong}.`}>
+  <div class="container page-head">
+    <p class="eyebrow">Archive</p>
+    <h1>Every film we've <em>shown</em></h1>
+    <p class="lede">{films.length} films presented at {site.venue.name} in {site.venue.city} since {formatDate(first.date, { day: undefined })}, newest first.</p>
+  </div>
+  <div class="container" style="padding-bottom: clamp(4rem, 9vw, 8rem)">
+    <div class="film-grid">
+      {filmsNewestFirst.map((film, i) => <FilmCard film={film} eager={i < 3} />)}
+    </div>
+  </div>
+</Base>

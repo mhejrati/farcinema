@@ -1,0 +1,66 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../layouts/Base.astro';
+import { posterFor } from '../../lib/images';
+import { films, formatDate, pad, site, type Film } from '../../lib/site';
+
+export async function getStaticPaths() {
+  return films.map((film) => ({ params: { slug: film.slug }, props: { film } }));
+}
+
+interface Props { film: Film }
+const { film } = Astro.props;
+const img = posterFor(film.poster);
+const idx = films.findIndex((f) => f.slug === film.slug);
+const prev = films[idx - 1];
+const next = films[idx + 1];
+const screened = formatDate(film.date, { weekday: 'long' });
+const description = film.synopsis || `${film.title} (${film.year}), directed by ${film.director}, screened by Farcinema on ${screened} at ${site.venue.name}.`;
+
+const links: { label: string; href: string }[] = [];
+if (film.trailer) links.push({ label: 'Watch the trailer', href: film.trailer });
+if (film.imdb) links.push({ label: 'IMDb', href: film.imdb });
+if (film.website) links.push({ label: 'Film website', href: film.website });
+if (film.luma) links.push({ label: 'Event page on Luma', href: film.luma });
+---
+<Base title={film.title} description={description}>
+  <article class="container film-hero">
+    <div class="film-hero__media">
+      <Image src={img} alt={`Still from ${film.title}`} widths={[600, 1000, 1600]} sizes="(min-width: 960px) 50vw, 100vw" loading="eager" />
+    </div>
+    <div>
+      <p class="eyebrow">Screening No. {pad(film.number)} · {screened}</p>
+      <h1>{film.title}</h1>
+      {film.title_fa && <p class="film-hero__fa" lang="fa" dir="rtl">{film.title_fa}</p>}
+      <dl class="meta-list">
+        <dt>Director</dt><dd>{film.director}</dd>
+        <dt>Year</dt><dd>{film.year}</dd>
+        <dt>Screened</dt><dd>{screened}</dd>
+        <dt>Venue</dt><dd>{site.venue.name}, {site.venue.city}</dd>
+        {film.extras && <><dt>Program</dt><dd>{film.extras}</dd></>}
+      </dl>
+      <div class="prose">
+        {film.synopsis ? <p>{film.synopsis}</p> : <p class="muted">Synopsis coming soon.</p>}
+      </div>
+      {links.length > 0 && (
+        <div class="links">
+          {links.map((l) => <a class="btn btn-small" href={l.href} target="_blank" rel="noopener">{l.label} ↗</a>)}
+        </div>
+      )}
+    </div>
+  </article>
+  <nav class="container pager" aria-label="Other screenings">
+    {prev && (
+      <a href={`/films/${prev.slug}/`} class="prev">
+        <p class="eyebrow">← Earlier</p>
+        <span class="t">{prev.title}</span>
+      </a>
+    )}
+    {next && (
+      <a href={`/films/${next.slug}/`} class="next">
+        <p class="eyebrow">Later →</p>
+        <span class="t">{next.title}</span>
+      </a>
+    )}
+  </nav>
+</Base>
