@@ -1,0 +1,111 @@
+[
+  {
+    "slug": "the-great-yawn-of-history",
+    "title": "The Great Yawn of History",
+    "director": "Aliyar Rasti",
+    "year": 2024,
+    "date": "2025-04-12",
+    "poster": "great-yawn.jpg",
+    "imdb": "https://www.imdb.com/title/tt31016912/",
+    "synopsis": "",
+    "focal": "50% 50%"
+  },
+  {
+    "slug": "radiograph-of-a-family",
+    "title": "Radiograph of a Family",
+    "director": "Firouzeh Khosrovani",
+    "year": 2020,
+    "date": "2025-07-20",
+    "poster": "Radiograph-of-a-family.jpg",
+    "imdb": "https://www.imdb.com/title/tt13359582/",
+    "synopsis": "",
+    "focal": "50% 50%"
+  },
+  {
+    "slug": "me-maryam-the-children-and-26-others",
+    "title": "Me, Maryam, the Children and 26 Others",
+    "director": "Farshad Hashemi",
+    "year": 2024,
+    "date": "2025-08-17",
+    "poster": "me-maryam.jpg",
+    "imdb": "https://www.imdb.com/title/tt31598088/",
+    "synopsis": "",
+    "focal": "50% 50%"
+  },
+  {
+    "slug": "terrestrial-verses",
+    "title": "Terrestrial Verses",
+    "title_fa": "آیه های زمینی",
+    "director": "Ali Asgari & Alireza Khatami",
+    "year": 2023,
+    "date": "2025-09-21",
+    "poster": "terrestrial-verses.jpg",
+    "luma": "https://luma.com/zrsc7xxj",
+    "extras": "Post-film Q&A and discussion",
+    "synopsis": "A satirical take on the mundane absurdities of life in the modern-day Middle East, these nine vignettes illuminate the lighter side of enduring under authoritarian rule. Progressing along a rough timeline from birth to death, each story is shot in a static camera angle as a single petitioner negotiates with an authority figure hovering just outside of frame.",
+    "focal": "50% 45%"
+  },
+  {
+    "slug": "in-the-land-of-brothers",
+    "title": "In the Land of Brothers",
+    "title_fa": "در سرزمین برادر",
+    "director": "Raha Amirfazli & Alireza Ghasemi",
+    "year": 2024,
+    "date": "2025-10-19",
+    "poster": "in-the-land-of-brothers.webp",
+    "luma": "https://luma.com/6v2l950y",
+    "extras": "In-person Q&A with director Raha Amirfazli",
+    "synopsis": "Three members of an extended Afghan family start their lives over in the Middle East as refugees, unaware they face a decades-long struggle ahead to be \"at home\".",
+    "focal": "50% 50%"
+  },
+  {
+    "slug": "my-stolen-planet",
+    "title": "My Stolen Planet",
+    "director": "Farahnaz Sharifi",
+    "year": 2024,
+    "date": "2025-11-16",
+    "poster": "my-stolen-planet.png",
+    "luma": "https://luma.com/czx58x1h",
+    "trailer": "https://www.youtube.com/watch?v=_TNVmAcAKEM",
+    "synopsis": "Farah, an Middle Eastern woman, migrates to her private planet to be free. She buys other people's memories in the form of Super 8 films and records and archives her own to create an alternative history of the Middle East.",
+    "focal": "50% 42%"
+  },
+  {
+    "slug": "the-crowd",
+    "title": "The Crowd",
+    "director": "Sahand Kabiri",
+    "year": 2025,
+    "date": "2026-02-01",
+    "poster": "the-crowd.jpg",
+    "luma": "https://luma.com/xmqxh9ft",
+    "trailer": "https://youtu.be/lKvu5jH3Tc8",
+    "synopsis": "A contemporary Middle Eastern film offering an intimate glimpse into everyday life in the Middle East. Set in a garage, a farewell gathering between friends becomes tense when a conservative family member tries to shut it down. A vibrant portrait of a younger generation in the Middle East, determined to live life on their own terms.",
+    "focal": "50% 50%"
+  },
+  {
+    "slug": "the-things-you-kill",
+    "title": "The Things You Kill",
+    "director": "Alireza Khatami",
+    "year": 2025,
+    "date": "2026-03-28",
+    "poster": "the-things-you-kill.jpg",
+    "luma": "https://luma.com/qtpo6rnb",
+    "imdb": "https://www.imdb.com/title/tt32367116/",
+    "extras": "In-person Q&A with director Alireza Khatami",
+    "synopsis": "A 2025 mystery film that won the Directing Award (World Cinema Dramatic) at the 2025 Sundance Film Festival. Ekin Koç stars as a university professor who solicits his gardener to seek vengeance after the suspicious death of his mother.",
+    "focal": "50% 45%"
+  },
+  {
+    "slug": "mahwash",
+    "title": "Mahwash",
+    "director": "Sam Javadi",
+    "year": 2025,
+    "date": "2026-04-19",
+    "poster": "mahwash.jpg",
+    "luma": "https://luma.com/xtwbguaz",
+    "website": "https://mahwashdoc.com/",
+    "extras": "In-person Q&A with Mahwash and director Sam Javadi. Sold out.",
+    "synopsis": "The remarkable journey of Mahwash, one of Afghanistan's pioneering female singers, as she navigates the trials of exile and political upheaval, all in pursuit of her deeply cherished dream: to hold a final concert in her homeland.",
+    "focal": "50% 22%"
+  }
+]

@@ -1,0 +1,164 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import FilmCard from '../components/FilmCard.astro';
+import hero from '../assets/hero-poster.png';
+import { site, films, filmsNewestFirst, formatDate } from '../lib/site';
+import { getUpcoming, formatLumaDate } from '../lib/luma';
+
+const upcoming = await getUpcoming();
+const next = upcoming[0];
+const series = site.series;
+const seriesDate = series ? formatDate(series.date, { weekday: 'short' }) : '';
+const recent = filmsNewestFirst.slice(0, 6);
+const firstYear = films[0]?.date.slice(0, 4);
+
+const seriesLd = series ? [{
+  '@context': 'https://schema.org',
+  '@type': 'ScreeningEvent',
+  name: series.title,
+  startDate: `${series.date}T11:00:00-07:00`,
+  endDate: `${series.date}T18:00:00-07:00`,
+  url: new URL(`/${series.slug}/`, Astro.site).toString(),
+  location: { '@type': 'Place', name: series.venue.name, address: { '@type': 'PostalAddress', streetAddress: '700 Howard Street', addressLocality: 'San Francisco', addressRegion: 'CA', postalCode: '94103', addressCountry: 'US' } },
+  organizer: [{ '@type': 'Organization', name: series.partner.name, url: series.partner.url }, { '@type': 'Organization', name: site.name }],
+  offers: { '@type': 'Offer', url: series.tickets.url },
+}] : [];
+const eventLd = upcoming.map((ev) => ({
+  '@context': 'https://schema.org',
+  '@type': 'ScreeningEvent',
+  name: ev.name,
+  startDate: ev.start,
+  endDate: ev.end,
+  url: ev.url,
+  image: ev.cover ?? undefined,
+  location: {
+    '@type': 'Place',
+    name: ev.venue ?? site.regionLong,
+    address: { '@type': 'PostalAddress', addressRegion: 'CA', addressCountry: 'US' },
+  },
+  organizer: { '@type': 'Organization', name: site.name, url: site.luma.url },
+}));
+---
+<Base jsonLd={[...seriesLd, ...eventLd]}>
+  <section class="hero">
+    <div class="hero__media">
+      <Image src={hero} alt="" widths={[800, 1400, 2200]} sizes="100vw" loading="eager" fetchpriority="high" />
+    </div>
+    <div class="container hero__inner">
+      <div>
+        <p class="eyebrow">Middle Eastern independent film curation · {site.region}</p>
+        <h1>See the <em>unseen</em> cinema of the Middle East.</h1>
+        <p class="hero__fa" lang="fa" dir="rtl">{site.taglineFa}</p>
+        <div class="hero__actions">
+          <a class="btn btn-primary" href="#upcoming">Upcoming screenings</a>
+          <a class="btn" href="/films/">Browse the archive</a>
+        </div>
+      </div>
+      {next ? (
+        <a class="stub" href={next.url} target="_blank" rel="noopener">
+          <p class="stub__label">Next screening</p>
+          <p class="stub__title">{next.name}</p>
+          <p class="stub__meta">{formatLumaDate(next.start)}<br />{next.venue ?? site.venue.name}</p>
+          <p class="stub__cta"><span>{next.soldOut ? 'Sold out · join waitlist' : `Get tickets${next.price ? ` · ${next.price}` : ''}`}</span><span aria-hidden="true">↗</span></p>
+        </a>
+      ) : series && (
+        <a class="stub" href={series.tickets.url} target="_blank" rel="noopener">
+          <p class="stub__label">{seriesDate} · {series.city}</p>
+          <p class="stub__title">{series.shortTitle}: Film Screenings</p>
+          <p class="stub__meta">Four films · {series.venue.short} · with {series.partner.name}</p>
+          <p class="stub__cta"><span>{series.tickets.label}</span><span aria-hidden="true">↗</span></p>
+        </a>
+      )}
+    </div>
+  </section>
+
+  <section class="section" id="upcoming">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Upcoming</p>
+          <h2>Next on <em>screen</em></h2>
+        </div>
+        <a class="link more" href={site.luma.url} target="_blank" rel="noopener">Full calendar on Luma ↗</a>
+      </div>
+
+      {series && (
+        <div class="series-banner">
+          <div>
+            <p class="eyebrow">{formatDate(series.date, { weekday: 'long' })} · {series.venue.name}, {series.city}</p>
+            <h3>{series.shortTitle}: <em>Film Screenings</em></h3>
+            <p>{series.subtitle}. Four films on women, music, and the right to be heard, presented with <a class="link" href={series.partner.url} target="_blank" rel="noopener">{series.partner.name}</a>.</p>
+            <ul class="series-banner__films">
+              {series.films.map((f) => <li><a href={`/${series.slug}/#${f.slug}`}>{f.title}</a><span class="muted"> · {f.director}</span></li>)}
+            </ul>
+          </div>
+          <div class="series-banner__actions">
+            <a class="btn btn-primary" href={series.tickets.url} target="_blank" rel="noopener">{series.tickets.label} ↗</a>
+            <a class="btn" href={`/${series.slug}/`}>Full program</a>
+          </div>
+        </div>
+      )}
+
+      {upcoming.length > 0 ? (
+        <div class="event-list">
+          {upcoming.map((ev) => (
+            <a class="event" href={ev.url} target="_blank" rel="noopener">
+              <div class="event__cover">{ev.cover && <img src={ev.cover} alt="" loading="lazy" />}</div>
+              <div>
+                <p class="event__date">{formatLumaDate(ev.start)}</p>
+                <h3 class="event__title">{ev.name}</h3>
+                <p class="event__venue">{ev.venue ?? site.venue.name}</p>
+              </div>
+              <span class="btn btn-small">{ev.soldOut ? 'Waitlist' : 'Tickets'}{ev.price && !ev.soldOut ? ` · ${ev.price}` : ''}</span>
+            </a>
+          ))}
+        </div>
+      ) : (
+        <p class="hint">Tickets for the October program are sold through Diaspora Arts Connection. Our Bay Area screenings are ticketed on Luma; subscribe to the calendar to hear about each one.</p>
+      )}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">The archive</p>
+          <h2>{films.length} screenings <em>since</em> {firstYear}</h2>
+        </div>
+        <a class="link more" href="/films/">All films</a>
+      </div>
+      <div class="film-grid">
+        {recent.map((film) => <FilmCard film={film} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container about-grid">
+      <div>
+        <p class="eyebrow">About</p>
+        <h2>Award-winning Middle Eastern films, straight from the <em>festival</em> circuit.</h2>
+        <p class="lede">
+          Farcinema is an independent curation program presenting new Middle Eastern cinema from Cannes, Berlinale, Sundance, Tribeca, and beyond to Bay Area audiences, often with the filmmakers in the room. Our goal is to introduce the art of Middle Eastern cinema to the world.
+        </p>
+        <div class="hero__actions">
+          <a class="btn" href="/about/">About Farcinema</a>
+        </div>
+      </div>
+      <div class="info-card">
+        <div>
+          <p class="eyebrow">Where</p>
+          <h3>Around the Bay</h3>
+          <p>Our programs so far have been at <a class="link" href={site.venue.map} target="_blank" rel="noopener">{site.venue.name}</a> in {site.venue.city}. The October series moves to <a class="link" href={site.series?.venue.website ?? site.series?.venue.map} target="_blank" rel="noopener">{site.series?.venue.short ?? "YBCA"}</a> in San Francisco.</p>
+        </div>
+        <div>
+          <p class="eyebrow">Tickets</p>
+          <h3>On Luma</h3>
+          <p>Every screening is ticketed through our Luma calendar. Subscribe there and you'll hear about each film as it's announced.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

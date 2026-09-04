@@ -1,0 +1,116 @@
+{
+  "name": "Farcinema",
+  "nameFa": "فارسینما",
+  "tagline": "See the unseen cinema of the Middle East",
+  "taglineFa": "سینمای نادیده‌ی خاورمیانه را ببینید",
+  "description": "Farcinema is an independent film curation program in the San Francisco Bay Area presenting new, award-winning Middle Eastern films from Cannes, Berlinale, Venice, Sundance, Tribeca, and beyond. Our goal is to introduce the art of Middle Eastern cinema to the world.",
+  "region": "Bay Area",
+  "regionLong": "San Francisco Bay Area",
+  "venue": {
+    "name": "The New Parkway Theater",
+    "city": "Oakland",
+    "address": "474 24th St, Oakland, CA 94612",
+    "map": "https://maps.google.com/?q=The+New+Parkway+Theater+474+24th+St+Oakland+CA+94612"
+  },
+  "luma": {
+    "url": "https://luma.com/farcinema",
+    "calendarId": "cal-5nB0dYEfnoFSDpY"
+  },
+  "curators": [
+    {
+      "name": "Hanieh Khaleghian"
+    },
+    {
+      "name": "Mohsen Hejrati"
+    }
+  ],
+  "social": {
+    "instagram": "",
+    "email": ""
+  },
+  "series": {
+    "slug": "let-her-sing-2026",
+    "title": "Let Her Sing 2026: Film Screenings",
+    "shortTitle": "Let Her Sing 2026",
+    "subtitle": "Women, Music & the Freedom to Sing",
+    "date": "2026-10-11",
+    "time": "11:00 AM – 6:00 PM",
+    "city": "San Francisco",
+    "venue": {
+      "name": "Yerba Buena Center for the Arts",
+      "short": "YBCA",
+      "address": "700 Howard Street, San Francisco, CA 94103",
+      "map": "https://maps.google.com/?q=Yerba+Buena+Center+for+the+Arts+700+Howard+Street+San+Francisco+CA+94103",
+      "website": "https://ybca.org/"
+    },
+    "partner": {
+      "name": "Diaspora Arts Connection",
+      "url": "https://www.diasporaartsconnection.org/events/lethersing2026-screenings"
+    },
+    "tickets": {
+      "url": "https://www.diasporaartsconnection.org/events/lethersing2026-screenings",
+      "label": "Get tickets",
+      "note": "Tickets for individual screenings, or a four-film package for the complete program."
+    },
+    "intro": [
+      "As part of the 10th anniversary of Let Her Sing: A Celebration of Female Voices, Diaspora Arts Connection and Farcinema present a special program of four films at YBCA in San Francisco, exploring the lives of women who refuse to let censorship, social expectations, and restrictions on artistic expression silence their voices.",
+      "Together, Sonita, The Unfinished Song, A Sister's Tale, and No Land's Song offer powerful perspectives on women, music, and the fundamental right to be heard. Moving between Afghanistan, the Middle East, Europe, and the diaspora, these films show how singing can become an act of self-determination, resistance, cultural memory, and freedom."
+    ],
+    "closing": "Each film stands on its own, offering a distinct story of women asserting their right to sing, create, and determine their own lives. Together, the four screenings form a larger conversation at the heart of Let Her Sing: what does it mean when a woman's voice is restricted, and what becomes possible when she is finally heard?",
+    "films": [
+      {
+        "slug": "sonita",
+        "title": "Sonita",
+        "director": "Rokhsareh Ghaemmaghami",
+        "year": 2015,
+        "country": "Middle East / Germany / Switzerland",
+        "poster": "sonita.jpeg",
+        "synopsis": [
+          "Sonita follows a spirited young Afghan refugee living in Tehran who dreams of becoming a rapper. While she writes songs inspired by artists she admires and imagines a future in music, her family has other plans: they intend to marry her off in exchange for money.",
+          "Living in a country where women face restrictions on singing publicly, Sonita turns to rap as a way to tell her own story and challenge the forces trying to determine her future. At once intimate and urgent, it is a portrait of a young woman discovering that her voice can become one of her most powerful tools for freedom."
+        ],
+        "imdb": "https://www.imdb.com/title/tt5278928/"
+      },
+      {
+        "slug": "the-unfinished-song",
+        "title": "The Unfinished Song",
+        "title_fa": "قطعه ناتمام",
+        "director": "Maziar Miri",
+        "year": 2001,
+        "country": "Middle East",
+        "poster": "Theunfinishedsong.jpg",
+        "synopsis": [
+          "Farhad, a young musicologist, travels to Khorasan in search of traditional folk songs sung by women. As he tries to document a musical heritage that is disappearing from public life, he discovers that women's voices are largely confined to lullabies and mourning songs.",
+          "His search leads him to Jiran, a gifted singer whose voice has made her a target of restrictions on women singing publicly. What begins as an effort to preserve regional music becomes a deeply human story about censorship, cultural memory, and the consequences of silencing women's artistic expression."
+        ],
+        "imdb": "https://www.imdb.com/title/tt0277975/"
+      },
+      {
+        "slug": "a-sisters-tale",
+        "title": "A Sister's Tale",
+        "director": "Leila Amini",
+        "year": 2024,
+        "country": "Middle East / Switzerland / France",
+        "poster": "sisterstale.jpeg",
+        "synopsis": [
+          "Filmed over seven years, A Sister's Tale is director Leila Amini's deeply personal portrait of her sister, Nasreen, a mother of two living in Tehran who begins to reclaim a dream she had long put aside: becoming a singer.",
+          "After years devoted to marriage and family, Nasreen becomes determined to pursue music despite opposition within her marriage and the restrictions placed on women singing publicly in the Middle East. What begins as the story of one woman finding her voice becomes a moving examination of family, marriage, motherhood, and female self-determination."
+        ],
+        "imdb": "https://www.imdb.com/title/tt33055408/"
+      },
+      {
+        "slug": "no-lands-song",
+        "title": "No Land's Song",
+        "director": "Ayat Najafi",
+        "year": 2014,
+        "country": "Middle East / France / Germany",
+        "poster": "nolandsongs.jpg",
+        "synopsis": [
+          "Middle Eastern composer Sara Najafi sets out to accomplish something that has become extraordinarily difficult in the Middle East: organize a public concert featuring women singing solo. Determined to revive a musical tradition pushed from public life, she brings together Middle Eastern and French women musicians for a concert in Tehran.",
+          "Director Ayat Najafi follows the project over more than two years as Sara navigates government bureaucracy, censorship, cultural restrictions, and uncertainty over whether the performance will ever be permitted to take place. Part musical journey and part chronicle of resistance, it asks what happens when a society restricts the female voice."
+        ],
+        "imdb": "https://www.imdb.com/title/tt3614356/"
+      }
+    ]
+  }
+}

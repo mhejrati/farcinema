@@ -1,0 +1,43 @@
+---
+import { site } from '../lib/site';
+const year = new Date().getFullYear();
+const curators = site.curators.map((c) => c.name).join(' & ');
+---
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h2>{site.name}</h2>
+        <p>{site.tagline}.<span class="fa-block" lang="fa" dir="rtl">{site.taglineFa}</span></p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="/#upcoming">Upcoming</a></li>
+          {site.series && <li><a href={`/${site.series.slug}/`}>{site.series.shortTitle}</a></li>}
+          <li><a href="/films/">Archive</a></li>
+          <li><a href="/about/">About</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Follow</h4>
+        <ul>
+          <li><a href={site.luma.url} target="_blank" rel="noopener">Luma calendar ↗</a></li>
+          {site.social.instagram && <li><a href={site.social.instagram} target="_blank" rel="noopener">Instagram ↗</a></li>}
+          {site.social.email && <li><a href={`mailto:${site.social.email}`}>{site.social.email}</a></li>}
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Venues</h4>
+        <address>
+          <a href={site.venue.map} target="_blank" rel="noopener">{site.venue.name}</a>, {site.venue.city}<br />
+          {site.series ? <a href={site.series.venue.map} target="_blank" rel="noopener">{site.series.venue.name}</a> : 'San Francisco'}, San Francisco
+        </address>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© {year} {site.name}</span>
+      <span>Curated by {curators} in the {site.regionLong}</span>
+    </div>
+  </div>
+</footer>

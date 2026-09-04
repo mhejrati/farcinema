@@ -1,0 +1,26 @@
+---
+import { site } from '../lib/site';
+const path = Astro.url.pathname;
+const links = [
+  { href: '/#upcoming', label: 'Upcoming', match: '/#upcoming', hideOnMobile: true },
+  ...(site.series ? [{ href: `/${site.series.slug}/`, label: 'October', match: `/${site.series.slug}` }] : []),
+  { href: '/films/', label: 'Archive', match: '/films' },
+  { href: '/about/', label: 'About', match: '/about' },
+];
+const isActive = (match: string) => match !== '/#upcoming' && path.startsWith(match);
+const tickets = site.series ? { href: site.series.tickets.url, label: 'Tickets' } : { href: site.luma.url, label: 'Tickets on Luma' };
+---
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="wordmark" href="/" aria-label={`${site.name} home`}>
+      <span class="wm-en">{site.name}</span>
+      <span class="wm-fa" lang="fa" dir="rtl">{site.nameFa}</span>
+    </a>
+    <nav aria-label="Primary">
+      {links.map((l) => (
+        <a href={l.href} class:list={[{ 'hide-mobile': l.hideOnMobile }]} aria-current={isActive(l.match) ? 'page' : undefined}>{l.label}</a>
+      ))}
+      <a class="btn btn-small btn-primary" href={tickets.href} target="_blank" rel="noopener">{tickets.label} <span aria-hidden="true">↗</span></a>
+    </nav>
+  </div>
+</header>
