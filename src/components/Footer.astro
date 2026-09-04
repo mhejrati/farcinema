@@ -1,7 +1,6 @@
 ---
 import { site } from '../lib/site';
 const year = new Date().getFullYear();
-const curators = site.curators.map((c) => c.name).join(' & ');
 ---
 <footer class="site-footer">
   <div class="container">
@@ -38,7 +37,6 @@ const curators = site.curators.map((c) => c.name).join(' & ');
     </div>
     <div class="footer-bottom">
       <span>© {year} {site.name}</span>
-      <span>Curated by {curators} in the {site.regionLong}</span>
     </div>
   </div>
 </footer>
