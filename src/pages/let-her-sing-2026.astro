@@ -31,7 +31,7 @@ const eventLd = {
   <div class="container page-head series-head">
     <p class="eyebrow">{dateLong} · {series.venue.name}, {series.city}</p>
     <h1>{series.shortTitle}: <em>Film Screenings</em></h1>
-    <p class="lede">{series.subtitle}. Four films on women, music, and the right to be heard, presented by <a class="link" href={series.partner.url} target="_blank" rel="noopener">{series.partner.name}</a> and {site.name}.</p>
+    <p class="lede">{series.subtitle}. Four films about women who sing when they are told not to, presented by <a class="link" href={series.partner.url} target="_blank" rel="noopener">{series.partner.name}</a> and {site.name}.</p>
     <div class="hero__actions">
       <a class="btn btn-primary" href={series.tickets.url} target="_blank" rel="noopener">{series.tickets.label} ↗</a>
       <a class="btn" href="#films">The four films</a>
@@ -70,8 +70,8 @@ const eventLd = {
   <section class="container section" id="films">
     <div class="section-head">
       <div>
-        <p class="eyebrow">The program</p>
-        <h2>Four films, <em>one</em> day</h2>
+        <p class="eyebrow">Program</p>
+        <h2>The four <em>films</em></h2>
       </div>
     </div>
     <div class="series-films">
@@ -106,8 +106,8 @@ const eventLd = {
   </section>
 
   <section class="container section series-closing">
-    <p class="eyebrow">See one film, or all four</p>
-    <h2>What becomes possible when she is <em>finally heard</em>?</h2>
+    <p class="eyebrow">Tickets</p>
+    <h2>One film, or the whole <em>day</em>.</h2>
     <p class="lede">{series.closing}</p>
     <div class="hero__actions">
       <a class="btn btn-primary" href={series.tickets.url} target="_blank" rel="noopener">{series.tickets.label} ↗</a>
