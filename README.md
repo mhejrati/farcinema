@@ -1,3 +1,6 @@
+
+<img width="1280" height="633" alt="hero-poster Large" src="https://github.com/user-attachments/assets/4cd08f68-827c-483e-b4af-7e94488fefdf" />
+
 # Farcinema website
 
 Static site built with [Astro](https://astro.build). Film data lives in JSON, so adding a film is a data edit, not a code change.
