@@ -66,7 +66,7 @@ const eventLd = upcoming.map((ev) => ({
         <a class="stub" href={series.tickets.url} target="_blank" rel="noopener">
           <p class="stub__label">{seriesDate} · {series.city}</p>
           <p class="stub__title">{series.shortTitle}: Film Screenings</p>
-          <p class="stub__meta">Four films · {series.venue.short} · with {series.partner.name}</p>
+          <p class="stub__meta">{series.films.length} films · {series.venue.short} · with {series.partner.name}</p>
           <p class="stub__cta"><span>{series.tickets.label}</span><span aria-hidden="true">↗</span></p>
         </a>
       )}
@@ -88,7 +88,7 @@ const eventLd = upcoming.map((ev) => ({
           <div>
             <p class="eyebrow">{formatDate(series.date, { weekday: 'long' })} · {series.venue.name}, {series.city}</p>
             <h3>{series.shortTitle}: <em>Film Screenings</em></h3>
-            <p>Four films about women who sing when they are told not to. A full day at YBCA with <a class="link" href={series.partner.url} target="_blank" rel="noopener">{series.partner.name}</a>.</p>
+            <p>Three films about women who sing when they are told not to, and a conversation after. A full day at YBCA with <a class="link" href={series.partner.url} target="_blank" rel="noopener">{series.partner.name}</a>.</p>
             <ul class="series-banner__films">
               {series.films.map((f) => <li><a href={`/${series.slug}/#${f.slug}`}>{f.title}</a><span class="muted"> · {f.director}</span></li>)}
             </ul>
