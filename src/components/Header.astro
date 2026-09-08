@@ -1,5 +1,6 @@
 ---
 import { site } from '../lib/site';
+import Wordmark from './Wordmark.astro';
 const path = Astro.url.pathname;
 const links = [
   { href: '/#upcoming', label: 'Upcoming', match: '/#upcoming', hideOnMobile: true },
@@ -13,7 +14,7 @@ const tickets = site.series ? { href: site.series.tickets.url, label: 'Tickets' 
 <header class="site-header">
   <div class="container header-inner">
     <a class="wordmark" href="/" aria-label={`${site.name} home`}>
-      <span class="wm-en">{site.name}</span>
+      <Wordmark class="wm-en" height={20} />
       <span class="wm-fa" lang="fa" dir="rtl">{site.nameFa}</span>
     </a>
     <nav aria-label="Primary">
