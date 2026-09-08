@@ -35,7 +35,7 @@
     "shortTitle": "Let Her Sing 2026",
     "subtitle": "Women, Music & the Freedom to Sing",
     "date": "2026-10-11",
-    "time": "11:00 AM – 6:00 PM",
+    "time": "11:00 AM – 5:00 PM",
     "city": "San Francisco",
     "venue": {
       "name": "Yerba Buena Center for the Arts",
@@ -57,7 +57,7 @@
       "For the 10th anniversary of Let Her Sing: A Celebration of Female Voices, Diaspora Arts Connection and Farcinema present a day of three films at YBCA in San Francisco. All three are about women who keep singing when they are told to stop.",
       "No Land's Song, A Sister's Tale, and Sonita move between Afghanistan, the Middle East, Europe, and the diaspora. In each of them, a woman's voice is the thing at stake. After the last film, Gelareh Sheibani and Yara Daneshvar join us for a conversation and audience questions."
     ],
-    "closing": "Tickets are sold per film, or as a pass for the whole day. Come for one, or stay from eleven to six.",
+    "closing": "Tickets are sold per film, or as a pass for the whole day. Come for one, or stay from eleven to five.",
     "films": [
       {
         "slug": "no-lands-song",
@@ -86,7 +86,7 @@
           "After years devoted to marriage and family, Nasreen becomes determined to pursue music despite opposition within her marriage and the restrictions placed on women singing publicly in the Middle East. What begins as the story of one woman finding her voice becomes a moving examination of family, marriage, motherhood, and female self-determination."
         ],
         "imdb": "https://www.imdb.com/title/tt33055408/",
-        "time": "1:00 PM – 2:30 PM",
+        "time": "12:50 PM – 2:20 PM",
         "introducedBy": "Hanieh Khaleghian"
       },
       {
@@ -101,7 +101,7 @@
           "Living in a country where women face restrictions on singing publicly, Sonita turns to rap as a way to tell her own story and challenge the forces trying to determine her future. At once intimate and urgent, it is a portrait of a young woman discovering that her voice can become one of her most powerful tools for freedom."
         ],
         "imdb": "https://www.imdb.com/title/tt5278928/",
-        "time": "3:00 PM – 4:30 PM",
+        "time": "2:35 PM – 4:05 PM",
         "introducedBy": "Mohsen Hejrati"
       }
     ],
@@ -120,34 +120,29 @@
       {
         "time": "12:35 PM",
         "title": "Break",
-        "detail": "25 minutes."
+        "detail": "15 minutes."
       },
       {
-        "time": "1:00 PM",
+        "time": "12:50 PM",
         "title": "A Sister's Tale",
         "detail": "Leila Amini, 2024. Introduced by Hanieh Khaleghian.",
         "film": "a-sisters-tale"
       },
       {
-        "time": "2:30 PM",
+        "time": "2:20 PM",
         "title": "Break",
-        "detail": "30 minutes."
+        "detail": "15 minutes."
       },
       {
-        "time": "3:00 PM",
+        "time": "2:35 PM",
         "title": "Sonita",
         "detail": "Rokhsareh Ghaemmaghami, 2015. Introduced by Mohsen Hejrati.",
         "film": "sonita"
       },
       {
-        "time": "4:30 PM",
+        "time": "4:05 PM",
         "title": "Conversation",
-        "detail": "Gelareh Sheibani and Yara Daneshvar share their stories, then take questions from the audience. 45 minutes."
-      },
-      {
-        "time": "5:15 PM",
-        "title": "Stay and talk",
-        "detail": "The space is yours until 5:45. Meet the other people who came, and talk about what you just saw."
+        "detail": "Gelareh Sheibani and Yara Daneshvar share their stories, then take questions from the audience. Until 4:50."
       }
     ],
     "guests": [

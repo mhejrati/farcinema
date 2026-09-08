@@ -18,7 +18,7 @@ const seriesLd = series ? [{
   '@type': 'ScreeningEvent',
   name: series.title,
   startDate: `${series.date}T11:00:00-07:00`,
-  endDate: `${series.date}T18:00:00-07:00`,
+  endDate: `${series.date}T17:00:00-07:00`,
   url: new URL(`/${series.slug}/`, Astro.site).toString(),
   location: { '@type': 'Place', name: series.venue.name, address: { '@type': 'PostalAddress', streetAddress: '700 Howard Street', addressLocality: 'San Francisco', addressRegion: 'CA', postalCode: '94103', addressCountry: 'US' } },
   organizer: [{ '@type': 'Organization', name: series.partner.name, url: series.partner.url }, { '@type': 'Organization', name: site.name }],
