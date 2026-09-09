@@ -8,33 +8,33 @@ const curators = site.curators.map((c) => c.name);
 <Base title="About" description={site.description}>
   <div class="container page-head">
     <p class="eyebrow">About</p>
-    <h1>New Middle Eastern cinema, from the world's festivals to the <em>Bay Area</em>.</h1>
+    <h1>Who we are and what we <em>show</em>.</h1>
   </div>
   <div class="container about-grid" style="padding-bottom: clamp(4rem, 9vw, 8rem)">
     <div class="prose">
       <p>
-        Farcinema is an independent film curation program based in the San Francisco Bay Area. We select and present
-        new, award-winning Middle Eastern films: the work that premieres at Cannes, Berlinale, Venice, Sundance, Tribeca,
-        Locarno, and Rotterdam, collects its prizes, and then rarely plays anywhere outside the festival circuit.
+        Farcinema is an independent film curation program in the San Francisco Bay Area, run by {curators[0]} and {curators[1]}.
+        We pick new Middle Eastern films that premiere at Cannes, Berlinale, Venice, Sundance, Tribeca, Locarno, and Rotterdam,
+        and we bring them to a screen here. Most of these films win prizes, tour the festivals, and then never get a release in the United States.
       </p>
       <p>
-        Our goal is to introduce the art of Middle Eastern cinema to the world. The Middle East has some of the richest film cultures
-        anywhere, and a new generation of filmmakers is making bold, intimate, and often courageous work. Most of it
-        never gets a theatrical release in the United States. We bring it to the screen here, and we bring the
-        conversation with it.
+        We want more people to see this cinema. The Middle East has a deep film culture and a new generation of directors
+        making work that is personal, funny, angry, and often made at real risk. It deserves an audience beyond the festival
+        circuit, and a room where people can talk about it afterward.
       </p>
       <p>
-        Each Farcinema program is an evening, not just a showing: an introduction to the film and its context, and
-        whenever we can, a live conversation with the director afterward. We began in {formatDate(first.date, { day: undefined })} at {site.venue.name} in {site.venue.city} and have presented {films.length} films since, {qaCount} of them with the
-        filmmakers in the room. This October we bring a full series to San Francisco.
+        A Farcinema night is the film, a short introduction, and, whenever we can manage it, the director on stage for questions.
+        We started in {formatDate(first.date, { day: undefined })} at {site.venue.name} in {site.venue.city}. {films.length} films later,
+        {qaCount} of those nights have had the filmmaker in the room. This October we take a full day of films to YBCA in San Francisco.
       </p>
       <p>
-        Tickets and announcements go through <a class="link" href={site.luma.url} target="_blank" rel="noopener">our Luma calendar</a>.
+        Announcements go out on <a class="link" href={site.social.whatsapp} target="_blank" rel="noopener">our WhatsApp group</a>.
+        Tickets for our own screenings are on <a class="link" href={site.luma.url} target="_blank" rel="noopener">Luma</a>.
       </p>
       <div class="stats">
-        <div class="stat"><b>{films.length}</b><span>films presented</span></div>
-        <div class="stat"><b>{qaCount}</b><span>directors in conversation</span></div>
-        <div class="stat"><b>{first.date.slice(0, 4)}</b><span>first program</span></div>
+        <div class="stat"><b>{films.length}</b><span>films shown</span></div>
+        <div class="stat"><b>{qaCount}</b><span>director Q&amp;As</span></div>
+        <div class="stat"><b>{first.date.slice(0, 4)}</b><span>first screening</span></div>
       </div>
     </div>
     <div>
@@ -48,13 +48,13 @@ const curators = site.curators.map((c) => c.name);
         <div>
           <p class="eyebrow">Venues</p>
           <h3>{site.venue.name}, {site.venue.city}</h3>
-          <p>Home of our programs to date. {site.venue.address} · <a class="link" href={site.venue.map} target="_blank" rel="noopener">Map ↗</a></p>
+          <p>Where we have screened so far. {site.venue.address} · <a class="link" href={site.venue.map} target="_blank" rel="noopener">Map ↗</a></p>
           <h3 style="margin-top:1rem">{site.series ? `${site.series.venue.short}, San Francisco` : 'San Francisco'}</h3>
           <p>{site.series ? <>The October 2026 series at <a class="link" href={site.series.venue.website} target="_blank" rel="noopener">{site.series.venue.name}</a>.</> : 'The October 2026 series.'}</p>
         </div>
         <div>
-          <p class="eyebrow">Filmmakers &amp; distributors</p>
-          <p>Have a new Middle Eastern film you think we should present? We'd love to hear from you{site.social.email ? <> at <a class="link" href={`mailto:${site.social.email}`}>{site.social.email}</a></> : ' through Luma'}.</p>
+          <p class="eyebrow">Have a film for us?</p>
+          <p>Message us on <a class="link" href={site.social.whatsapp} target="_blank" rel="noopener">WhatsApp</a>{site.social.email ? <> or at <a class="link" href={`mailto:${site.social.email}`}>{site.social.email}</a></> : ''}.</p>
         </div>
       </div>
     </div>

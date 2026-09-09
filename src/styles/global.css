@@ -181,7 +181,10 @@ dl, p { margin: 0; }
   border: 1px solid var(--line); border-radius: 6px;
   background: linear-gradient(135deg, var(--ink-3), var(--ink-2)); margin-bottom: 2.5rem;
 }
-@media (min-width: 900px) { .series-banner { grid-template-columns: 1fr auto; align-items: center; } }
+@media (min-width: 900px) { .series-banner { grid-template-columns: 1fr auto 320px; align-items: center; } }
+.series-banner__poster { display: block; border-radius: var(--radius); overflow: hidden; background: var(--ink-3); max-width: 420px; margin: 0 auto; }
+.series-banner__poster img { width: 100%; height: auto; display: block; transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.series-banner__poster:hover img { transform: scale(1.02); }
 .series-banner h3 { font-size: clamp(2rem, 4vw, 3.25rem); }
 .series-banner p:not(.eyebrow) { margin: 0.75rem 0 0; color: var(--paper-70); max-width: 55ch; }
 .series-banner .dates { color: var(--paper-45); font-size: 0.95rem; }
@@ -209,6 +212,8 @@ dl, p { margin: 0; }
 .series-banner__actions .btn { justify-content: center; }
 
 /* Series page */
+.series-cover { padding-bottom: clamp(2rem, 5vw, 4rem); }
+.series-cover img { width: 100%; height: auto; border-radius: 6px; display: block; }
 .series-head h1 { max-width: 16ch; }
 .series-intro { padding-bottom: clamp(3rem, 6vw, 5rem); }
 .series-films { display: grid; }
@@ -226,6 +231,16 @@ dl, p { margin: 0; }
 .series-film__body .btn { margin-top: 0.5rem; }
 .series-closing { max-width: 60ch; }
 .series-closing h2 { font-size: clamp(2rem, 4vw, 3.25rem); }
+
+/* Schedule */
+.schedule { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.schedule__row { display: grid; grid-template-columns: 7.5rem 1fr; gap: 1rem 2rem; padding: 1.1rem 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+@media (max-width: 600px) { .schedule__row { grid-template-columns: 1fr; gap: 0.25rem; } }
+.schedule__time { font-size: 0.85rem; font-weight: 600; letter-spacing: 0.06em; color: var(--accent-soft); font-variant-numeric: tabular-nums; }
+.schedule__title { font-size: 1.35rem; }
+.schedule__title a { text-decoration: none; border-bottom: 1px solid var(--paper-20); }
+.schedule__title a:hover { border-color: var(--paper); }
+.schedule__detail { margin: 0.3rem 0 0; color: var(--paper-70); font-size: 0.98rem; }
 
 /* Film grid */
 .film-grid { display: grid; gap: 2.75rem 1.5rem; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }

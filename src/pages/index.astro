@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import FilmCard from '../components/FilmCard.astro';
 import hero from '../assets/hero-poster.png';
+import seriesPoster from '../assets/series/let-her-sing-2026-poster.jpg';
 import { site, films, filmsNewestFirst, formatDate } from '../lib/site';
 import { getUpcoming, formatLumaDate } from '../lib/luma';
 
@@ -18,7 +19,7 @@ const seriesLd = series ? [{
   '@type': 'ScreeningEvent',
   name: series.title,
   startDate: `${series.date}T11:00:00-07:00`,
-  endDate: `${series.date}T18:00:00-07:00`,
+  endDate: `${series.date}T17:00:00-07:00`,
   url: new URL(`/${series.slug}/`, Astro.site).toString(),
   location: { '@type': 'Place', name: series.venue.name, address: { '@type': 'PostalAddress', streetAddress: '700 Howard Street', addressLocality: 'San Francisco', addressRegion: 'CA', postalCode: '94103', addressCountry: 'US' } },
   organizer: [{ '@type': 'Organization', name: series.partner.name, url: series.partner.url }, { '@type': 'Organization', name: site.name }],
@@ -66,7 +67,7 @@ const eventLd = upcoming.map((ev) => ({
         <a class="stub" href={series.tickets.url} target="_blank" rel="noopener">
           <p class="stub__label">{seriesDate} · {series.city}</p>
           <p class="stub__title">{series.shortTitle}: Film Screenings</p>
-          <p class="stub__meta">Four films · {series.venue.short} · with {series.partner.name}</p>
+          <p class="stub__meta">{series.films.length} films · {series.venue.short} · with {series.partner.name}</p>
           <p class="stub__cta"><span>{series.tickets.label}</span><span aria-hidden="true">↗</span></p>
         </a>
       )}
@@ -78,7 +79,7 @@ const eventLd = upcoming.map((ev) => ({
       <div class="section-head">
         <div>
           <p class="eyebrow">Upcoming</p>
-          <h2>Next on <em>screen</em></h2>
+          <h2>What's <em>next</em></h2>
         </div>
         <a class="link more" href={site.luma.url} target="_blank" rel="noopener">Full calendar on Luma ↗</a>
       </div>
@@ -88,7 +89,7 @@ const eventLd = upcoming.map((ev) => ({
           <div>
             <p class="eyebrow">{formatDate(series.date, { weekday: 'long' })} · {series.venue.name}, {series.city}</p>
             <h3>{series.shortTitle}: <em>Film Screenings</em></h3>
-            <p>{series.subtitle}. Four films on women, music, and the right to be heard, presented with <a class="link" href={series.partner.url} target="_blank" rel="noopener">{series.partner.name}</a>.</p>
+            <p>Three films about women who sing when they are told not to, and a conversation after. A full day at YBCA with <a class="link" href={series.partner.url} target="_blank" rel="noopener">{series.partner.name}</a>.</p>
             <ul class="series-banner__films">
               {series.films.map((f) => <li><a href={`/${series.slug}/#${f.slug}`}>{f.title}</a><span class="muted"> · {f.director}</span></li>)}
             </ul>
@@ -97,6 +98,9 @@ const eventLd = upcoming.map((ev) => ({
             <a class="btn btn-primary" href={series.tickets.url} target="_blank" rel="noopener">{series.tickets.label} ↗</a>
             <a class="btn" href={`/${series.slug}/`}>Full program</a>
           </div>
+          <a class="series-banner__poster" href={`/${series.slug}/`} aria-label={`${series.title}: full program`}>
+            <Image src={seriesPoster} alt="" widths={[400, 720, 1080]} sizes="(min-width: 900px) 360px, 100vw" loading="lazy" />
+          </a>
         </div>
       )}
 
@@ -115,7 +119,7 @@ const eventLd = upcoming.map((ev) => ({
           ))}
         </div>
       ) : (
-        <p class="hint">Tickets for the October program are sold through Diaspora Arts Connection. Our Bay Area screenings are ticketed on Luma; subscribe to the calendar to hear about each one.</p>
+        <p class="hint">October tickets are sold by Diaspora Arts Connection. For everything else, <a class="link" href={site.social.whatsapp} target="_blank" rel="noopener">join the WhatsApp group</a> or follow the <a class="link" href={site.luma.url} target="_blank" rel="noopener">Luma calendar</a>.</p>
       )}
     </div>
   </section>
@@ -139,9 +143,9 @@ const eventLd = upcoming.map((ev) => ({
     <div class="container about-grid">
       <div>
         <p class="eyebrow">About</p>
-        <h2>Award-winning Middle Eastern films, straight from the <em>festival</em> circuit.</h2>
+        <h2>The festival films that never <em>open</em> here.</h2>
         <p class="lede">
-          Farcinema is an independent curation program presenting new Middle Eastern cinema from Cannes, Berlinale, Sundance, Tribeca, and beyond to Bay Area audiences, often with the filmmakers in the room. Our goal is to introduce the art of Middle Eastern cinema to the world.
+          Farcinema is two people in the Bay Area who pick new Middle Eastern films from Cannes, Berlinale, Sundance, and Tribeca and bring them to a local screen, usually with the director in the room.
         </p>
         <div class="hero__actions">
           <a class="btn" href="/about/">About Farcinema</a>
@@ -150,13 +154,17 @@ const eventLd = upcoming.map((ev) => ({
       <div class="info-card">
         <div>
           <p class="eyebrow">Where</p>
-          <h3>Around the Bay</h3>
+          <h3>Oakland and San Francisco</h3>
           <p>Our programs so far have been at <a class="link" href={site.venue.map} target="_blank" rel="noopener">{site.venue.name}</a> in {site.venue.city}. The October series moves to <a class="link" href={site.series?.venue.website ?? site.series?.venue.map} target="_blank" rel="noopener">{site.series?.venue.short ?? "YBCA"}</a> in San Francisco.</p>
         </div>
         <div>
-          <p class="eyebrow">Tickets</p>
-          <h3>On Luma</h3>
-          <p>Every screening is ticketed through our Luma calendar. Subscribe there and you'll hear about each film as it's announced.</p>
+          <p class="eyebrow">Announcements</p>
+          <h3>WhatsApp and Luma</h3>
+          <p>Join the WhatsApp group to hear about each screening first. Tickets for our own screenings are on Luma.</p>
+          <div class="hero__actions" style="margin-top:1rem">
+            <a class="btn btn-primary btn-small" href={site.social.whatsapp} target="_blank" rel="noopener">Join on WhatsApp ↗</a>
+            <a class="btn btn-small" href={site.luma.url} target="_blank" rel="noopener">Luma calendar ↗</a>
+          </div>
         </div>
       </div>
     </div>

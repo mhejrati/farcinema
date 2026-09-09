@@ -3,17 +3,18 @@ import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import { posterMaybe } from '../lib/images';
 import { site, formatDate, pad } from '../lib/site';
+import cover from '../assets/series/let-her-sing-2026-cover.jpg';
 
 const series = site.series;
 const dateLong = formatDate(series.date, { weekday: 'long' });
-const description = `${series.subtitle}. Four films presented by ${series.partner.name} and ${site.name} at ${series.venue.name}, San Francisco, on ${dateLong}.`;
+const description = `${series.subtitle}. Three films and a conversation, presented by ${series.partner.name} and ${site.name} at ${series.venue.name}, San Francisco, on ${dateLong}.`;
 const eventLd = {
   '@context': 'https://schema.org',
   '@type': 'ScreeningEvent',
   name: `${series.title} — ${site.name} × ${series.partner.name}`,
   description,
   startDate: `${series.date}T11:00:00-07:00`,
-  endDate: `${series.date}T18:00:00-07:00`,
+  endDate: `${series.date}T17:00:00-07:00`,
   eventStatus: 'https://schema.org/EventScheduled',
   location: {
     '@type': 'Place',
@@ -27,15 +28,19 @@ const eventLd = {
   offers: { '@type': 'Offer', url: series.tickets.url, availability: 'https://schema.org/InStock' },
 };
 ---
-<Base title={series.title} description={description} jsonLd={[eventLd]}>
+<Base title={series.title} description={description} image="/og-let-her-sing-2026.jpg" jsonLd={[eventLd]}>
   <div class="container page-head series-head">
     <p class="eyebrow">{dateLong} · {series.venue.name}, {series.city}</p>
     <h1>{series.shortTitle}: <em>Film Screenings</em></h1>
-    <p class="lede">{series.subtitle}. Four films on women, music, and the right to be heard, presented by <a class="link" href={series.partner.url} target="_blank" rel="noopener">{series.partner.name}</a> and {site.name}.</p>
+    <p class="lede">{series.subtitle}. Three films about women who sing when they are told not to, and a conversation after, presented by <a class="link" href={series.partner.url} target="_blank" rel="noopener">{series.partner.name}</a> and {site.name}.</p>
     <div class="hero__actions">
       <a class="btn btn-primary" href={series.tickets.url} target="_blank" rel="noopener">{series.tickets.label} ↗</a>
-      <a class="btn" href="#films">The four films</a>
+      <a class="btn" href="#schedule">The day's schedule</a>
     </div>
+  </div>
+
+  <div class="container series-cover">
+    <Image src={cover} alt={`${series.title}: Sunday, October 11, 2026, 11 AM to 5 PM at Yerba Buena Center for the Arts, San Francisco`} widths={[800, 1280, 1920]} sizes="(min-width: 1320px) 1280px, 100vw" loading="eager" />
   </div>
 
   <div class="container about-grid series-intro">
@@ -67,11 +72,31 @@ const eventLd = {
     </div>
   </div>
 
+  <section class="container section" id="schedule">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">{dateLong}</p>
+        <h2>The <em>day</em></h2>
+      </div>
+    </div>
+    <ol class="schedule">
+      {series.schedule.map((s) => (
+        <li class="schedule__row">
+          <span class="schedule__time">{s.time}</span>
+          <div>
+            <h3 class="schedule__title">{s.film ? <a href={`#${s.film}`}>{s.title}</a> : s.title}</h3>
+            <p class="schedule__detail">{s.detail}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </section>
+
   <section class="container section" id="films">
     <div class="section-head">
       <div>
-        <p class="eyebrow">The program</p>
-        <h2>Four films, <em>one</em> day</h2>
+        <p class="eyebrow">Program</p>
+        <h2>The <em>films</em></h2>
       </div>
     </div>
     <div class="series-films">
@@ -87,7 +112,7 @@ const eventLd = {
               )}
             </div>
             <div class="series-film__body">
-              <p class="eyebrow">Film {pad(i + 1)} · {film.year} · {film.country}</p>
+              <p class="eyebrow">{film.time} · {film.year} · {film.country}</p>
               <h3>{film.title}</h3>
               {film.title_fa && <p class="film-card__fa" lang="fa" dir="rtl">{film.title_fa}</p>}
               <p class="series-film__dir">Directed by {film.director}</p>
@@ -106,8 +131,8 @@ const eventLd = {
   </section>
 
   <section class="container section series-closing">
-    <p class="eyebrow">See one film, or all four</p>
-    <h2>What becomes possible when she is <em>finally heard</em>?</h2>
+    <p class="eyebrow">Tickets</p>
+    <h2>One film, or the whole <em>day</em>.</h2>
     <p class="lede">{series.closing}</p>
     <div class="hero__actions">
       <a class="btn btn-primary" href={series.tickets.url} target="_blank" rel="noopener">{series.tickets.label} ↗</a>
