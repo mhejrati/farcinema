@@ -1,12 +1,13 @@
 ---
 import { site } from '../lib/site';
+import Wordmark from './Wordmark.astro';
 const year = new Date().getFullYear();
 ---
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <h2>{site.name}</h2>
+        <h2><Wordmark class="footer-wordmark" height={40} /></h2>
         <p>{site.tagline}.<span class="fa-block" lang="fa" dir="rtl">{site.taglineFa}</span></p>
       </div>
       <div class="footer-col">

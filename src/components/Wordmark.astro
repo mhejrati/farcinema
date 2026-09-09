@@ -1,0 +1,16 @@
+---
+interface Props { class?: string; height?: number; label?: string }
+const { class: cls = '', height = 20, label = 'Farcinema' } = Astro.props;
+const ratio = 7822 / 850;
+---
+<svg class={`wordmark-svg ${cls}`} viewBox="-75 -775 7822 850" height={height} width={Math.round(height * ratio)} role="img" aria-label={label} xmlns="http://www.w3.org/2000/svg">
+  <path d="M83 0V700H612V570H245V0ZM233 255V385H569V255Z" transform="translate(0 0) scale(1 -1)" fill="currentColor" />
+  <path d="M-9 0 303 700H463L776 0H606L350 618H414L157 0ZM147 150 190 273H550L594 150Z" transform="translate(799 0) scale(1 -1)" fill="currentColor" />
+  <path d="M83 0V700H382Q528 700 609.0 632.5Q690 565 690 446Q690 368 653.0 311.5Q616 255 548.0 225.0Q480 195 386 195H173L245 266V0ZM528 0 353 254H526L703 0ZM245 248 173 324H377Q452 324 489.0 356.5Q526 389 526 446Q526 504 489.0 536.0Q452 568 377 568H173L245 645Z" transform="translate(1725 0) scale(1 -1)" fill="currentColor" />
+  <path d="M418 -12Q337 -12 267.5 14.5Q198 41 147.0 90.0Q96 139 67.5 205.0Q39 271 39 350Q39 429 67.5 495.0Q96 561 147.5 610.0Q199 659 268.0 685.5Q337 712 419 712Q510 712 583.5 680.5Q657 649 707 588L603 492Q567 533 523.0 553.5Q479 574 427 574Q378 574 337.0 558.0Q296 542 266.0 512.0Q236 482 219.5 441.0Q203 400 203 350Q203 300 219.5 259.0Q236 218 266.0 188.0Q296 158 337.0 142.0Q378 126 427 126Q479 126 523.0 146.5Q567 167 603 209L707 113Q657 52 583.5 20.0Q510 -12 418 -12Z" transform="translate(2620 0) scale(1 -1)" fill="none" stroke="var(--accent)" stroke-width="75" stroke-linejoin="round" />
+  <path d="M83 0V700H245V0Z" transform="translate(3504 0) scale(1 -1)" fill="currentColor" />
+  <path d="M83 0V700H217L630 196H565V700H725V0H592L178 504H243V0Z" transform="translate(3992 0) scale(1 -1)" fill="currentColor" />
+  <path d="M83 0V700H612V570H244V130H625V0ZM232 292V418H569V292Z" transform="translate(4960 0) scale(1 -1)" fill="currentColor" />
+  <path d="M83 0V700H217L515 206H444L737 700H870L872 0H720L719 467H747L513 74H440L201 467H235V0Z" transform="translate(5791 0) scale(1 -1)" fill="currentColor" />
+  <path d="M-9 0 303 700H463L776 0H606L350 618H414L157 0ZM147 150 190 273H550L594 150Z" transform="translate(6906 0) scale(1 -1)" fill="currentColor" />
+</svg>
