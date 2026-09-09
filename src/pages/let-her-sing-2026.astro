@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import { posterMaybe } from '../lib/images';
 import { site, formatDate, pad } from '../lib/site';
+import cover from '../assets/series/let-her-sing-2026-cover.jpg';
 
 const series = site.series;
 const dateLong = formatDate(series.date, { weekday: 'long' });
@@ -27,7 +28,7 @@ const eventLd = {
   offers: { '@type': 'Offer', url: series.tickets.url, availability: 'https://schema.org/InStock' },
 };
 ---
-<Base title={series.title} description={description} jsonLd={[eventLd]}>
+<Base title={series.title} description={description} image="/og-let-her-sing-2026.jpg" jsonLd={[eventLd]}>
   <div class="container page-head series-head">
     <p class="eyebrow">{dateLong} · {series.venue.name}, {series.city}</p>
     <h1>{series.shortTitle}: <em>Film Screenings</em></h1>
@@ -36,6 +37,10 @@ const eventLd = {
       <a class="btn btn-primary" href={series.tickets.url} target="_blank" rel="noopener">{series.tickets.label} ↗</a>
       <a class="btn" href="#schedule">The day's schedule</a>
     </div>
+  </div>
+
+  <div class="container series-cover">
+    <Image src={cover} alt={`${series.title}: Sunday, October 11, 2026, 11 AM to 5 PM at Yerba Buena Center for the Arts, San Francisco`} widths={[800, 1280, 1920]} sizes="(min-width: 1320px) 1280px, 100vw" loading="eager" />
   </div>
 
   <div class="container about-grid series-intro">

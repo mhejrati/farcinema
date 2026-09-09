@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import FilmCard from '../components/FilmCard.astro';
 import hero from '../assets/hero-poster.png';
+import seriesPoster from '../assets/series/let-her-sing-2026-poster.jpg';
 import { site, films, filmsNewestFirst, formatDate } from '../lib/site';
 import { getUpcoming, formatLumaDate } from '../lib/luma';
 
@@ -97,6 +98,9 @@ const eventLd = upcoming.map((ev) => ({
             <a class="btn btn-primary" href={series.tickets.url} target="_blank" rel="noopener">{series.tickets.label} ↗</a>
             <a class="btn" href={`/${series.slug}/`}>Full program</a>
           </div>
+          <a class="series-banner__poster" href={`/${series.slug}/`} aria-label={`${series.title}: full program`}>
+            <Image src={seriesPoster} alt="" widths={[400, 720, 1080]} sizes="(min-width: 900px) 360px, 100vw" loading="lazy" />
+          </a>
         </div>
       )}
 
